@@ -1,0 +1,48 @@
+class SqueakyClean {
+    static String clean(String identifier) {
+        String result="";
+       for(int i=0;i<identifier.length();i++)
+           {
+
+            if(identifier.substring(i,i+1).equals(" ")||identifier.substring(i,i+1).equals("-")||identifier.substring(i,i+1).equals("_")||Character.isDigit(identifier.charAt(i))||Character.isLetter(identifier.charAt(i)))
+            {
+               if(identifier.substring(i,i+1).equals(" "))
+               {
+                   result+="_";
+                   }
+            else if(identifier.substring(i,i+1).equals("-"))
+            {
+                    result+=(identifier.substring(i+1,i+2).toUpperCase());
+                i++;
+            }
+             else if(identifier.charAt(i)>='0'&&identifier.charAt(i)<='9')
+            {
+                
+               switch(identifier.charAt(i))
+                   {
+                   case '4':
+                    result+="a";
+                    break;
+                       case '3':
+                           result+="e";
+                           break;
+                       case '0':
+                           result+="o";
+                           break;
+                       case '1':
+                           result+="l";
+                           break;
+                       case '7':
+                           result+="t";
+                        break;
+                   }
+                   }
+               else if(!(!identifier.substring(i,i+1).equals("¡")&&identifier.substring(i,i+1).equals("!")))
+               {
+                   result+=identifier.substring(i,i+1);
+               }
+           }
+               }
+        return result;
+    }
+}
